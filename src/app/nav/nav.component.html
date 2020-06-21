@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">  
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" *ngIf="estaLogueado()" routerLink="/usuario">Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="estaLogueado()" routerLink="/empleado">Empleados</a>
+        </li>                   
+      </ul>
+  
+      <div *ngIf="estaLogueado()" class="form-inline">
+        <label for="" class="letraBlanca m2">Bienvenido,</label>
+        <label for="" class="letraBlanca m2">{{nombreUsuario}}</label>
+        <button (click)="logout()" class="btn btn-light m2">Logout</button>
+      </div>
+      <div *ngIf="!estaLogueado()" class="form-inline">
+        <input type="text" [(ngModel)]="objLogin.email" class="form-control m2" placeholder="email">
+        <input type="password" [(ngModel)]="objLogin.password" class="form-control m2" placeholder="password">
+        <button (click)="login()"  class="btn btn-light m2">Login</button>
+      </div>
+    </div>
+  </nav>
+  
