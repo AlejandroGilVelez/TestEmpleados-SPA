@@ -6,18 +6,24 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { ToastModule } from "primeng/toast";
 import { MessageService } from "primeng/api";
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { ButtonModule } from "primeng/button";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { AuthInterceptorService } from './shared/interceptors/auth-interceptor.service';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { UsuarioEditarComponent } from './usuario/usuario-editar/usuario-editar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavComponent
+    NavComponent,
+    UsuarioComponent,
+    UsuarioEditarComponent
     
   ],
   imports: [
@@ -26,6 +32,8 @@ import { AuthInterceptorService } from './shared/interceptors/auth-interceptor.s
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    InputSwitchModule,
+    ButtonModule,
     ToastModule    
   ],
   providers: [

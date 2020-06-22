@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="form-group row">
+      <div class="col-sm-6">
+        <label for="Nombres">Nombres</label>
+        <input
+          type="text"
+          class="form-control"
+          id="Nombres"
+          [(ngModel)]="usuarioSeleccionado.nombres"
+        />
+      </div>
+      <div class="col-sm-6">
+        <label for="Apellidos">Apellidos</label>
+        <input
+          type="text"
+          class="form-control"
+          id="Apellidos"
+          [(ngModel)]="usuarioSeleccionado.apellidos"
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-6">
+        <label for="Identificación">Número de Identificación</label>
+        <input
+          type="number"
+          class="form-control"
+          id="Identificación"
+          [(ngModel)]="usuarioSeleccionado.nroIdentificacion"
+        />
+      </div>
+      <div class="col-sm-6">
+        <label for="exampleInputEmail1">Correo</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          [(ngModel)]="usuarioSeleccionado.email"
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-6">
+        <label for="Telefono">Teléfono/Celular</label>
+        <input
+          type="text"
+          class="form-control"
+          id="Telefono"
+          [(ngModel)]="usuarioSeleccionado.telefono"
+        />
+      </div>
+    </div>
+    <div class="form-check row">
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="Activo"
+          [(ngModel)]="usuarioSeleccionado.activo"
+        />
+        <label class="form-check-label" for="Activo">Activo</label>
+      </div>
+    </div>
+    <br />
+    <button type="Guardar" class="btn btn-primary" (click)="guardar()">
+      Guardar
+    </button>
+    <button type="Cancelar" class="btn btn-primary" (click)="cancelar()">
+      Cancelar
+    </button>
+  </div>
+  
