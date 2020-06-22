@@ -33,4 +33,8 @@ export class UsuarioService {
     return this.http.put(`${environment.baseUrl}Usuario/Update`, usuarioSeleccionado);
   }
 
+  cambioEstado(usuarioSeleccionado: Usuario){
+    return this.http.post(`${environment.baseUrl}Usuario/CambioEstado`, usuarioSeleccionado);
+  }
+
 }

@@ -16,6 +16,8 @@ import { NavComponent } from './nav/nav.component';
 import { AuthInterceptorService } from './shared/interceptors/auth-interceptor.service';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { UsuarioEditarComponent } from './usuario/usuario-editar/usuario-editar.component';
+import { EmpleadoEditarComponent } from './empleado/empleado-editar/empleado-editar.component';
+import { EmpleadoComponent } from './empleado/empleado.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +25,9 @@ import { UsuarioEditarComponent } from './usuario/usuario-editar/usuario-editar.
     HomeComponent,
     NavComponent,
     UsuarioComponent,
-    UsuarioEditarComponent
-    
+    UsuarioEditarComponent,
+    EmpleadoComponent,
+    EmpleadoEditarComponent    
   ],
   imports: [
     HttpClientModule,

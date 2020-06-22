@@ -1,1 +1,6 @@
-<p>home works!</p>
+<div *ngIf="validarLogin()" class="form-inline">    
+    <h1 class="text-center">Bienvenido a Test Empleados</h1>
+</div>
+<div *ngIf="!validarLogin()" class="form-inline">    
+    <h1 class="text-center">Login para ingresar a Test Empleados</h1>
+</div>

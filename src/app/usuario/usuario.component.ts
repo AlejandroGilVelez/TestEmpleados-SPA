@@ -3,6 +3,7 @@ import { Usuario } from '../models/usuario';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../shared/services/usuario.service';
 import { MessageService } from 'primeng/api';
+import { GlobalFilterService } from '../shared/services/global-filter.service';
 
 @Component({
   selector: 'app-usuario',
@@ -16,7 +17,8 @@ export class UsuarioComponent implements OnInit {
 
   constructor(private route: Router,
               private usuarioService: UsuarioService,
-              private messageService: MessageService) { }
+              private messageService: MessageService,
+              private globalFilterService: GlobalFilterService) { }
 
   ngOnInit(): void {
     this.obtenerUsuarios();
@@ -32,19 +34,21 @@ export class UsuarioComponent implements OnInit {
         this.messageService.add({
           severity: "error",
           summary: "Error al cargar",
-          detail: "Ocurrió un error al momento de cargar lista de usuarios"
+          detail: "Ocurrió un error al momento de cargar lista de usuarios."
         });
       }
     )
   }
 
-  agregarUsuario(){
-    localStorage.removeItem("idUsuarioEditar");
+  agregarUsuario(){    
+    // localStorage.removeItem("idUsuarioEditar");
+    this.globalFilterService.usuarioSeleccionado = null;    
     this.route.navigate(["/usuario-editar"]);
   }
 
   editar(row: Usuario){
-    localStorage.setItem("idUsuarioEditar", row.id);
+    // localStorage.setItem("idUsuarioEditar", row.id);
+    this.globalFilterService.usuarioSeleccionado = row;    
     this.route.navigate(["/usuario-editar"]);
   }
 
@@ -82,7 +86,24 @@ export class UsuarioComponent implements OnInit {
   }
 
   cambioEstado(e, row: Usuario){
-
+    let isChecked = e.checked;
+    this.usuarioSeleccionado = row;
+    this.usuarioService.cambioEstado(this.usuarioSeleccionado).subscribe(
+      (response) => {
+        this.messageService.add({
+          severity: "success",
+          summary: "Guadado exitoso",
+          detail: `El usuario se ${isChecked?"activo":"inactivo"} correctamente`
+        });
+        this.obtenerUsuarios();
+      },
+      (error) => {
+        this.messageService.add({
+          severity: "error",
+          summary: "Error al guardar",
+          detail: `Ocurrió un error al momento de guardar. Detalle error: ${error.error}`
+        });
+      }
+    );
   }
-
 }

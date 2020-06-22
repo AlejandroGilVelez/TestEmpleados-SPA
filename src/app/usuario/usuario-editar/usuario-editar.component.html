@@ -1,4 +1,5 @@
 <div class="container">
+  <h1 class="text-center">{{esNuevoUsuario? 'Creando' : 'Editando'}} Usuario</h1>
     <div class="form-group row">
       <div class="col-sm-6">
         <label for="Nombres">Nombres</label>
@@ -62,12 +63,12 @@
         <label class="form-check-label" for="Activo">Activo</label>
       </div>
     </div>
-    <br />
+    <br />    
+    <button type="Cancelar" class="btn btn-secondary" (click)="cancelar()">
+      Cancelar
+    </button>
     <button type="Guardar" class="btn btn-primary" (click)="guardar()">
       Guardar
-    </button>
-    <button type="Cancelar" class="btn btn-primary" (click)="cancelar()">
-      Cancelar
     </button>
   </div>
   

@@ -1,0 +1,49 @@
+<h1 class="text-center">Gestión de Empleados</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tipo Documento</th>
+      <th scope="col">Documento Identidad</th>
+      <th scope="col">Nombres</th>
+      <th scope="col">Apellidos</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Área</th>      
+      <th scope="col">
+        <input type="button" class="btn btn-link" value="Nuevo" (click)="agregarEmpleado()"/>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of recordsEmpleados; index as i">
+      <td scope="row">{{ i + 1 }}</td>
+      <td>{{ item.tipoIdentificacion }}</td>
+      <td>{{ item.nroIdentificacion }}</td>
+      <td>{{ item.nombres }}</td>
+      <td>{{ item.apellidos }}</td>
+      <td>{{ item.email }}</td>
+      <td>{{ item.area }}</td>      
+      <td>
+        <input type="button" class="btn btn-secondary m2" value="Editar" (click)="editar(item)"/>
+        <input type="button" class="btn btn-danger m2" value="Eliminar" (click)="eliminar(item)" />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p-toast position="center" key="c" (onClose)="onReject()" [modal]="true" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div style="text-align: center">
+            <i class="pi pi-exclamation-triangle" style="font-size: 3em"></i>
+            <h3>{{message.summary}}</h3>
+            <p>{{message.detail}}</p>
+        </div>
+        <div class="ui-g ui-fluid">
+            <div class="ui-g-6">
+                <button type="button" pButton (click)="onConfirm()" label="Yes" class="ui-button-success"></button>
+            </div>
+            <div class="ui-g-6">
+                <button type="button" pButton (click)="onReject()" label="No" class="ui-button-secondary"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
