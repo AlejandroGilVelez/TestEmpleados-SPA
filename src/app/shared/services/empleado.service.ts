@@ -33,4 +33,8 @@ export class EmpleadoService {
     return this.http.put(`${environment.baseUrl}Empleado/Update`, empleadoSeleccionado)
   }
 
+  buscarEmpleado(empleado: string){
+    return this.http.get<Empleado[]>(`${environment.baseUrl}Empleado/Buscar?empleado=${empleado}`);
+  }
+
 }

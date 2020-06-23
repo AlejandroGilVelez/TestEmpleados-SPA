@@ -14,6 +14,8 @@ export class EmpleadoComponent implements OnInit {
 
   recordsEmpleados: Array<Empleado> = [];
   empleadoSeleccionado: Empleado;
+  empleado: string;
+  
 
   constructor(private empleadoService: EmpleadoService,
               private messageService: MessageService,
@@ -22,6 +24,33 @@ export class EmpleadoComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerEmpleados();
+  }
+
+  buscar(empleado: string){
+    // console.log(`Tengo que buscar alguna mkda pero mandemela ps Idiota + ${empleado}`);
+    if (empleado == null || empleado.length == 0) {
+        this.obtenerEmpleados();
+      return;
+    }
+    this.empleadoService.buscarEmpleado(empleado).subscribe(
+      (response) => {
+        if (response == null || response.length == 0) {
+          this.messageService.add({
+            severity: "warn",
+            summary: "Búsqueda",
+            detail: "No se encontraron empleados.",
+          });      
+        }
+        this.recordsEmpleados = [...response];
+      },
+      (error) => {
+        this.messageService.add({
+          severity: "error",
+          summary: "Error al cargar",
+          detail: "Ocurrió un error al momento de cargar el empleado buscado."
+        });
+      }
+    );
   }
 
   obtenerEmpleados(){

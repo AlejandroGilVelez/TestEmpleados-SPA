@@ -215,7 +215,7 @@ export class EmpleadoEditarComponent implements OnInit {
       });      
       return false;      
     }
-    if(this.empleadoSeleccionado.areaId == null){
+    if(this.empleadoSeleccionado.areaId == null || this.empleadoSeleccionado.areaId.length == 0){
       this.messageService.add({
         severity: "warn",
         summary: "Tipo Área Inválido",
@@ -223,7 +223,7 @@ export class EmpleadoEditarComponent implements OnInit {
       });      
       return false;      
     }
-    if(this.empleadoSeleccionado.subAreaId == null){
+    if(this.empleadoSeleccionado.subAreaId == null || this.empleadoSeleccionado.subAreaId.length == 0){
       this.messageService.add({
         severity: "warn",
         summary: "Tipo Subárea Inválido",
