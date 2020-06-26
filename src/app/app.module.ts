@@ -4,10 +4,13 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
+
 import { ToastModule } from "primeng/toast";
 import { MessageService } from "primeng/api";
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { ButtonModule } from "primeng/button";
+// import { TableModule } from 'primeng/table';
+// import { DropdownModule } from 'primeng/dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +21,8 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { UsuarioEditarComponent } from './usuario/usuario-editar/usuario-editar.component';
 import { EmpleadoEditarComponent } from './empleado/empleado-editar/empleado-editar.component';
 import { EmpleadoComponent } from './empleado/empleado.component';
+// import { ScrollingModule } from '@angular/cdk/scrolling';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +41,10 @@ import { EmpleadoComponent } from './empleado/empleado.component';
     BrowserAnimationsModule,
     FormsModule,
     InputSwitchModule,
+    // TableModule,    
     ButtonModule,
+    // ScrollingModule,
+    // DropdownModule,
     ToastModule    
   ],
   providers: [

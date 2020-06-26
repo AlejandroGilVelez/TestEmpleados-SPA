@@ -3,7 +3,7 @@ import { Empleado } from '../models/empleado';
 import { EmpleadoService } from '../shared/services/empleado.service';
 import { MessageService } from 'primeng/api';
 import { GlobalFilterService } from '../shared/services/global-filter.service';
-import { Route, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-empleado',
